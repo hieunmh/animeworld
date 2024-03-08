@@ -17,7 +17,7 @@ class _TopAnimeListState extends State<TopAnimeList> {
     return FutureBuilder(
       future: getAnimeByRankingTypeApi(
         rankingType: 'all', 
-        limit: 4 
+        limit: 4
       ), 
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
@@ -25,7 +25,9 @@ class _TopAnimeListState extends State<TopAnimeList> {
         }
 
         if (snapshot.data != null) {
-          return TopAnimesImageSlider(animes: [],);
+          final animes = snapshot.data!.toList();
+
+          return TopAnimesImageSlider(animes: animes);
         }
 
         return ErrorScreen(error: snapshot.error.toString());
