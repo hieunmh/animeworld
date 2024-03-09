@@ -2,6 +2,7 @@
 import 'package:animeworld/api/get_anime_by_ranking_type.dart';
 import 'package:animeworld/core/screens/error_screen.dart';
 import 'package:animeworld/core/widgets/loader.dart';
+import 'package:animeworld/screens/view_all_animes_screen.dart';
 import 'package:animeworld/widgets/anime_tile.dart';
 import 'package:flutter/material.dart';
 
@@ -45,7 +46,16 @@ class FeaturedAnimes extends StatelessWidget {
                       ),
                     ),
                     TextButton(
-                      onPressed: () {}, 
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (_) => ViewAllAnimesScreen(
+                              rankingType: rankingType, 
+                              label: label
+                            )
+                          )
+                        );
+                      }, 
                       child: const Text('View all')
                     )
                   ],
