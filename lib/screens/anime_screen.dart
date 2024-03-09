@@ -31,18 +31,54 @@ class _AnimeScreenState extends State<AnimeScreen> {
               child: TopAnimeList(),
             ),
 
-            // top animes
             Padding(
               padding: Paddings.noBottomPadding,
               child: Column(
                 children: [
+                  // top animes
                   SizedBox(
                     height: 350,
                     child: FeaturedAnimes(
                       label: 'Top Ranked',
                       rankingType: 'all',
                     ),
-                  )
+                  ),
+
+                  // Top popular
+                  SizedBox(
+                    height: 350,
+                    child: FeaturedAnimes(
+                      label: 'Top Polular',
+                      rankingType: 'bypopularity',
+                    ),
+                  ),
+
+                  // Top movie
+                  SizedBox(
+                    height: 350,
+                    child: FeaturedAnimes(
+                      label: 'Top Movie',
+                      rankingType: 'movie',
+                    ),
+                  ),
+
+                  // Top Up Coming
+                  SizedBox(
+                    height: 350,
+                    child: FeaturedAnimes(
+                      label: 'Top Up Coming',
+                      rankingType: 'upcoming',
+                    ),
+                  ),
+
+                  // Top Favorite
+                  SizedBox(
+                    height: 350,
+                    child: FeaturedAnimes(
+                      label: 'Top Favorite',
+                      rankingType: 'favorite',
+                    ),
+                  ),
                 ]
               ),
             )
