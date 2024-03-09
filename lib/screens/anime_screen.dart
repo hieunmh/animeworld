@@ -1,3 +1,5 @@
+import 'package:animeworld/common/styles/padding.dart';
+import 'package:animeworld/views/featured_anime.dart';
 import 'package:animeworld/widgets/top_anime.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -20,13 +22,31 @@ class _AnimeScreenState extends State<AnimeScreen> {
           icon: const Icon (CupertinoIcons.search))
         ],
       ),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         child: Column(
           children: [
+            // feature anime
             SizedBox(
               height: 300,
               child: TopAnimeList(),
+            ),
+
+            // top animes
+            Padding(
+              padding: Paddings.noBottomPadding,
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 350,
+                    child: FeaturedAnimes(
+                      label: 'Top Ranked',
+                      rankingType: 'all',
+                    ),
+                  )
+                ]
+              ),
             )
+              
           ],
         ),
       ),

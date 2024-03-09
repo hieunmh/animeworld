@@ -16,6 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
+    // ignore: unnecessary_null_comparison
     if (widget.index != null) {
       _currentScreenIndex = widget.index;
     }

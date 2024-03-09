@@ -51,9 +51,8 @@ class _TopAnimesImageSliderState extends State<TopAnimesImageSlider> {
               initialPage: _currentPageIndex,
             ),
           ),
-
+          
           const SizedBox(height: 20),
-
           // Page Indicator
           AnimatedSmoothIndicator(
             activeIndex: _currentPageIndex,
