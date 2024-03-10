@@ -2,9 +2,9 @@ import 'package:animeworld/screens/anime_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key, required this.index});
+  const HomeScreen({super.key, this.index});
 
-  final int index;
+  final int? index;
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -16,9 +16,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
-    // ignore: unnecessary_null_comparison
     if (widget.index != null) {
-      _currentScreenIndex = widget.index;
+      _currentScreenIndex = widget.index!;
     }
     super.initState();
   }
