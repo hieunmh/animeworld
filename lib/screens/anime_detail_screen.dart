@@ -3,6 +3,7 @@ import 'package:animeworld/common/extensions/extension.dart';
 import 'package:animeworld/common/styles/padding.dart';
 import 'package:animeworld/common/styles/text_style.dart';
 import 'package:animeworld/common/widgets/ios_back_button.dart';
+import 'package:animeworld/common/widgets/network_image_view.dart';
 import 'package:animeworld/common/widgets/read_more_text.dart';
 import 'package:animeworld/core/screens/error_screen.dart';
 import 'package:animeworld/core/widgets/loader.dart';
@@ -61,8 +62,11 @@ class AnimeDetailScreen extends StatelessWidget {
                         _buildAnimeBackground(background: anime.background)
                         : const SizedBox.shrink(),
 
-                        // anime image
-                        _buildAnimeImages(pictures: anime.pictures)
+                        const SizedBox(height: 20),
+
+                        // image gallery
+                        _buildImageGallery(images: anime.pictures)
+                        
                       ],
                     ),
                   )
@@ -152,43 +156,45 @@ class AnimeDetailScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildAnimeImages({required List<Picture> pictures}) {
+  Widget _buildImageGallery({required List<Picture> images}) {
     return Column(
       children: [
-        Text(
+        const Text(
           'Image Gallery',
-          style: TextStyles.smallText,
+          style: TextStyles.mediumText,
         ),
         GridView.builder(
-          itemCount: pictures.length,
+          itemCount: images.length,
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 3,
-            childAspectRatio: 9 / 16,
+            childAspectRatio: 9 /16,
             crossAxisSpacing: 8,
-            mainAxisSpacing: 8,
-          ),
+            mainAxisSpacing: 8
+          ), 
           itemBuilder: (context, index) {
-            final image = pictures[index].medium;
-            final largeImage = pictures[index].large;
-            return SizedBox(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: InkWell(
-                  onTap: () {},
-                  child: Image.network(
-                    image,
-                    fit: BoxFit.cover,
-                  ),
-                ),
+            final image = images[index];
+
+            return ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: InkWell(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => NetworkImageView(imageUrl: image.large)
+                    )
+                  );
+                },
+                child: Image.network(image.medium, fit: BoxFit.cover)
               ),
             );
-          },
-        ),
+          }
+        )
       ],
     );
   }
+  
 }
 
 class WhiteContainer extends StatelessWidget {
