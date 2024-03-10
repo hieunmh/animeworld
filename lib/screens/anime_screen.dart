@@ -1,5 +1,5 @@
 import 'package:animeworld/common/styles/padding.dart';
-import 'package:animeworld/views/featured_anime.dart';
+import 'package:animeworld/views/featured_animes.dart';
 import 'package:animeworld/widgets/top_anime.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

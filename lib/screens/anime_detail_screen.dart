@@ -9,6 +9,7 @@ import 'package:animeworld/core/screens/error_screen.dart';
 import 'package:animeworld/core/widgets/loader.dart';
 import 'package:animeworld/models/anime_details.dart';
 import 'package:animeworld/models/picture.dart';
+import 'package:animeworld/views/similar_animes.dart';
 import 'package:animeworld/widgets/info_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -65,7 +66,25 @@ class AnimeDetailScreen extends StatelessWidget {
                         const SizedBox(height: 20),
 
                         // image gallery
-                        _buildImageGallery(images: anime.pictures)
+                        _buildImageGallery(images: anime.pictures),
+
+                        const SizedBox(height: 20),
+
+                        SimilarAnimesView(
+                          animes: anime.relatedAnime.map(
+                            (animeRe) => animeRe.node
+                          ).toList(),
+                          label: 'Related Animes',
+                        ),
+
+                        const SizedBox(height: 20),
+
+                        SimilarAnimesView(
+                          animes: anime.recommendations.map(
+                            (animeRe) => animeRe.node
+                          ).toList(),
+                          label: 'Recommendations',
+                        ),
                         
                       ],
                     ),
