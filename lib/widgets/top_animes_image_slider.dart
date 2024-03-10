@@ -1,3 +1,4 @@
+import 'package:animeworld/screens/anime_detail_screen.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -89,7 +90,13 @@ class TopAnimePicture extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (_) => AnimeDetailScreen(id: anime.node.id)
+          )
+        );
+      },
       splashColor: Colors.white,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(8.0),
