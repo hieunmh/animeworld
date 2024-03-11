@@ -1,4 +1,5 @@
 import 'package:animeworld/screens/anime_screen.dart';
+import 'package:animeworld/screens/search_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -31,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final _screens = const [
     AnimeScreen(),
-    Center(child: Text('Search Screen')),
+    SearchScreen(),
     Center(child: Text('Categories Screen')),
     Center(child: Text('Settings Screen')),
   ];

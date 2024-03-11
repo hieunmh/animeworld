@@ -7,9 +7,7 @@ import '/config/app_config.dart';
 import '/models/anime.dart';
 import '/models/anime_info.dart';
 
-Future<Iterable<Anime>> getAnimesbySearchApi({
-  required String query,
-}) async {
+Future<Iterable<Anime>> getAnimesbySearchApi({required String query}) async {
   final baseUrl = "https://api.myanimelist.net/v2/anime?q=$query&limit=10";
 
   final response = await http.get(

@@ -1,3 +1,4 @@
+import 'package:animeworld/screens/anime_detail_screen.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import '/models/anime.dart';
@@ -15,7 +16,13 @@ class AnimeListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (_) => AnimeDetailScreen(id: anime.node.id)
+          )
+        );
+      },
       child: Padding(
         padding: const EdgeInsets.only(
           bottom: 16.0,
