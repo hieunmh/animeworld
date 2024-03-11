@@ -1,4 +1,5 @@
 import 'package:animeworld/screens/anime_screen.dart';
+import 'package:animeworld/screens/category_screen.dart';
 import 'package:animeworld/screens/search_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -33,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final _screens = const [
     AnimeScreen(),
     SearchScreen(),
-    Center(child: Text('Categories Screen')),
+    CategoryScreen(),
     Center(child: Text('Settings Screen')),
   ];
 
