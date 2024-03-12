@@ -1,6 +1,7 @@
 import 'package:animeworld/screens/anime_screen.dart';
 import 'package:animeworld/screens/category_screen.dart';
 import 'package:animeworld/screens/search_screen.dart';
+import 'package:animeworld/screens/setting_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -35,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
     AnimeScreen(),
     SearchScreen(),
     CategoryScreen(),
-    Center(child: Text('Settings Screen')),
+    SettingScreen(),
   ];
 
   bool canPop() {
